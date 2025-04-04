@@ -6,9 +6,7 @@ RUN npm install -g npm@latest
 
 COPY package*.json ./
 
-RUN echo "//registry.npmjs.org/:_authToken=your-access-token" > .npmrc && \
-  npm install && \
-  rm -f .npmrc
+RUN npm install
 
 COPY . .
 
