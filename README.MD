@@ -87,6 +87,8 @@ src/
    docker run -p 3000:3000 --env-file .env translation-api
    ```
 
+For detailed information about Docker setup and configuration, please refer to our [Docker documentation](./docs/docker.md).
+
 ## API Endpoints
 
 ### POST `/api/translate`
@@ -114,6 +116,18 @@ Translate text and fetch dictionary details.
   ]
 }
 ```
+
+### GET `/api`
+
+Check API health and connection status.
+
+#### Response
+
+```text
+Translation API ready
+```
+
+This endpoint helps monitor the API's operational status and connectivity.
 
 ## License
 
