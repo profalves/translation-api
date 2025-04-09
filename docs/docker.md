@@ -147,7 +147,7 @@ curl -X POST http://localhost:3000/api/translate \
   -d '{"text": "good morning"}'
 ```
 
-Expected response:
+Expected response example:
 
 ```json
 {
@@ -241,12 +241,36 @@ translation-api    1.0.0    a1b2c3d4e5f6   2 minutes ago   368MB
 
 ## Manage containers
 
+Running container with image recently built:
+
+```bash
+docker run -d --name translation-container -p 3000:3000 translation-api:1.0.0
+```
+
+> Note: If you want to use the latest image, just use `translation-api` without the tag.
+
+Stop and remove the container:
+
+```bash
+docker stop translation-container
+docker rm translation-container
+```
+
+> Note: If you want to remove the container without stopping it first, use `docker rm -f translation-container`.
+
 To list and manage Docker containers, use these commands:
 
 1. List running containers:
 
 ```bash
 docker ps
+```
+
+Example output:
+
+```
+CONTAINER ID   NAME                    STATUS         PORTS                    IMAGE
+a1b2c3d4e5f6   translation-container   Up 2 minutes   0.0.0.0:3000->3000/tcp   translation-api:latest
 ```
 
 2. List all containers (including stopped ones):
@@ -277,13 +301,6 @@ docker ps -aq
 
 ```bash
 docker container prune
-```
-
-Example output:
-
-```
-CONTAINER ID   NAME                    STATUS         PORTS                    IMAGE
-a1b2c3d4e5f6   translation-container   Up 2 minutes   0.0.0.0:3000->3000/tcp   translation-api:latest
 ```
 
 ## Troubleshooting
